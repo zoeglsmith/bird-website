@@ -1,0 +1,52 @@
+form(action=`/birds/${bird._id}/update` method=`POST` enctype="multipart/form-data")
+    h2 Common Names
+    label(for='pName') Primary Name 
+    input(type='text' name='pName' id='pName' value=`${bird.primary_name}`)
+    label(for='eName') English Name 
+    input(type='text' name='eName' id='eName' value=`${bird.english_name}`)
+    label(for='oName') Other Names
+    textarea(name='oName' rows='10' cols='50')=bird.other_names
+  
+
+    h2 Taxonomy
+    label(for='sName') Scientific Name
+    input(type='text' name='sName' id='sName' value=`${bird.scientific_name}`)
+    label(for='order') Order
+    input(type='text' name='order' id='order' value=`${bird.order}`)
+    label(for='family') Family
+    input(type='text' name='family' id='family' value=`${bird.family}`)
+
+
+    h2 Size
+    label(for='length') Length(cm)
+    input(type='number' name='length' id='length' value=bird.size.length.value)
+
+
+    label(for='weight') Weight(g)
+    input(type='number' name='weight' id='weight' value=bird.size.weight.value)
+
+    h2 Conservation
+    label(for='status') Conservation Status
+    select(name='status' id='status')
+        option(class="currentStat")=bird.status
+        option(class="Not-Threatened") Not Threatened
+        option(class="Naturally-Uncommon") Naturally Uncommon
+        option(class="Relict") Relict
+        option(class="Recovering") Recovering
+        option(class="Declining") Declining
+        option(class="Nationally-Increasing") Nationally Increasing
+        option(class="Nationally-Vulnerable") Nationally Vulnerable
+        option(class="Nationally-Endangered") Nationally Endangered
+        option(class="Nationally-Critical") Nationally Critical
+        option(class="Data-Deficient") Data Deficient
+
+    legend Photo
+    label(for='photoCred') Photo Credit
+    input(type='text' name='photoCred' id='photoCred' value=`${bird.photo.credit}`)
+    label(for='newPic')  Upload New Photo
+    input(type='file' name='photoSource' id='photoSource' )
+    label(for='photoDispaly') Photo Preview
+    img(id="picPrev" src='/images/'+bird.photo.source) 
+    input(id="uploadPic" type="text" name="picSource" value=`${bird.photo.source}` readonly="readonly")
+    button(type='submit') Save Bird
+

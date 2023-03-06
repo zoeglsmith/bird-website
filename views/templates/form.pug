@@ -1,0 +1,49 @@
+form(action='/birds/create' method='POST' enctype="multipart/form-data")
+    h2 Common Names
+    //- label(for='idName') ID 
+    //-  input(type='text' name='idName' id='idName')
+    label(for='pName') Primary Name 
+    input(type='text' name='pName' id='pName')
+    label(for='eName') English Name 
+    input(type='text' name='eName' id='eName')
+    label(for='oName') Other Names
+    textarea(type='text' name='oName' id='oName')
+
+    h2 Taxonomy
+    label(for='sName') Scientific Name
+    input(type='text' name='sName' id='sName')
+    label(for='order') Order
+    input(type='text' name='order' id='order')
+    label(for='family') Family
+    input(type='text' name='family' id='family')
+
+
+    h2 Size
+    label(for='length') Length(cm)
+    input(type='number' name='length' id='length')
+
+    label(for='weight') Weight(g)
+    input(type='number' name='weight' id='weight')
+
+
+    h2 Conservation
+    label(for='status') Conservation Status
+    select(name='status' id='status')
+        option(class="Not-Threatened") Not Threatened
+        option(class="Naturally-Uncommon") Naturally Uncommon
+        option(class="Relict") Relict
+        option(class="Recovering") Recovering
+        option(class="Declining") Declining
+        option(class="Nationally-Increasing") Nationally Increasing
+        option(class="Nationally-Vulnerable") Nationally Vulnerable
+        option(class="Nationally-Endangered") Nationally Endangered
+        option(class="Nationally-Critical") Nationally Critical
+        option(class="Data-Deficient") Data Deficient
+
+    h2 Photo
+    label(for='photoCred') Photo Credit
+    input(type='text' name='photoCred' id='photoCred')
+    label(for='newPic')  Upload New Photo
+    input(type='file' name='photoSource' id='photoSource')
+    button(type='submit') Save Bird
+
